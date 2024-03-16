@@ -134,13 +134,6 @@
                 </li>
 
                 <li class="nav-item mt-3">
-                    <a href="./indicators.html" class="nav-link">
-                        <i class="fas fa-chart-line"></i>
-                        <p class="ml-3">Indicators</p>
-                    </a>
-                </li>
-
-                <li class="nav-item mt-3">
                     <a href="./activities.html" class="nav-link">
                         <i class="fas fa-calendar-check"></i>
                         <p class="ml-3">Activities</p>
@@ -178,22 +171,229 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">Targets</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item active">Targets</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
+
+            <div class="container-fluid">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <large class="card-title">
+                                <div class="row no-print">
+                                    <div class="col-12">
+                                        <button class="btn btn-primary float-right" type="button"
+                                            id="new_application"><i class="fa fa-plus"></i> Add New Target</button>
+                                        <dialog id="myDialog"
+                                            style="width: 50%; height: 120%; background-color: white; z-index:1000001;">
+                                            <div class="card" style="background-color: white; color: black;">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        <h3>New Target</h3>
+                                                    </div>
+
+                                                </div>
+                                                <div class="card-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputEmail1">CCM Membership number</label>
+                                                            <input type="email" class="form-control"
+                                                                id="exampleInputEmail1" placeholder="Enter membership number"
+                                                                style="background-color: white; color: black;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputPassword1">Ilani ya chama</label>
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputPassword1" placeholder="ilani"
+                                                                style="background-color: white; color: black;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputPassword1">Malengo</label>
+                                                            <input type="text" class="form-control"
+                                                                id="exampleInputPassword1" placeholder="malengo"
+                                                                style="background-color: white; color: black;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputPassword1">Time to complete target</label>
+                                                            <input type="date" class="form-control"
+                                                                id="exampleInputPassword1" placeholder="muda"
+                                                                style="background-color: white; color: black;">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleInputPassword1">Beneficiaries</label>
+                                                            <select value="loan-type" class="form-control" style="background-color: white; color: black;">
+                                                                <option name="" id="">__select here__</option>
+                                                                <option name="" id="">Citizens</option>
+                                                                <option name="" id="">Economy</option>
+                                                                <option name="" id="">Politics</option>
+                                                                <option name="" id="">Government</option>
+                                                                <option name="" id="">Parliament</option>
+                                                                <option name="" id="">Other</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="description">Description</label>
+                                                            <Textarea placeholder="what is the purpose for this loan?" class="form-control"style="background-color: white; color: black;" rows="5" cols="10"></Textarea>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input"
+                                                                id="exampleCheck1">
+                                                            <label class="form-check-label"
+                                                                for="exampleCheck1">I agree to terms and conditions</label>
+                                                        </div>
+                                                        <div class="card-footer">
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Submit</button>
+                                                            <button id="closeDialogBtn" class="btn btn-danger"
+                                                                style="float: right;" autofocus>&times;
+                                                                Cancel</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+
+                                        </dialog>
+                                        <button type="button" class="btn btn-primary float-right"
+                                            style="margin-right: 5px;">
+                                            <i class="fas fa-download"></i> Generate PDF
+                                        </button>
+                                    </div>
+                                </div>
+                            </large>
+
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered" id="loan-list">
+                                <colgroup>
+                                    <col width="5%">
+                                    <col width="20%">
+                                    <col width="25%">
+                                    <col width="20%">
+                                    <col width="5%">
+                                    <col width="10%">
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">#</th>
+                                        <th class="text-center">Target</th>
+                                        <th class="text-center">Time for completion</th>
+                                        <th class="text-center">Indicators</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                        </td>
+                                        <td>
+                                            <p>Name :</p>
+                                            <p>Description :</p>
+                                        </td>
+                                        <td>
+                                            <p>Reference :</b></p>
+                                        </td>
+                                        <td>
+                                            <p></p>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge badge-success">complete</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-primary edit_payment" type="button"
+                                                data-id=""><i
+                                                    class="fa fa-edit"></i></button>
+                                            <button class="btn btn-danger delete_payment" type="button"
+                                                data-id=""><i
+                                                    class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                        </td>
+                                        <td>
+                                            <p>Name :</p>
+                                            <p>Description :</p>
+                                        </td>
+                                        <td>
+                                            <p>Reference :</b></p>
+                                        </td>
+                                        <td>
+                                            <p></p>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge badge-success">complete</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-primary edit_payment" type="button"
+                                                data-id=""><i
+                                                    class="fa fa-edit"></i></button>
+                                            <button class="btn btn-danger delete_payment" type="button"
+                                                data-id=""><i
+                                                    class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                        </td>
+                                        <td>
+                                            <p>Name :</p>
+                                            <p>Description :</p>
+                                        </td>
+                                        <td>
+                                            <p>Reference :</b></p>
+                                        </td>
+                                        <td>
+                                            <p></p>
+                                        </td>
+                                        <td class="text-center">
+                                            <span class="badge badge-danger">Incomplete</span>
+                                        </td>
+                                        <td class="text-center">
+                                            <button class="btn btn-primary edit_payment" type="button"
+                                                data-id=""><i
+                                                    class="fa fa-edit"></i></button>
+                                            <button class="btn btn-danger delete_payment" type="button"
+                                                data-id=""><i
+                                                    class="fa fa-trash"></i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.content-header -->
         <footer class="main-footer">
             <strong>Copyright &copy; 2024-2030 <a href="#">eCHAMA-MS</a>.</strong>
             All rights reserved.
         </footer>
+
+        <script>
+            // Get references to the button and the dialog
+            const openDialogBtn = document.getElementById('new_application');
+            const myDialog = document.getElementById("myDialog");
+            const closeDialogBtn = document.getElementById('closeDialogBtn');
+
+            // Event listener to open the dialog
+            openDialogBtn.addEventListener('click', () => {
+                myDialog.showModal();
+            });
+
+            // Event listener to close the dialog
+            closeDialogBtn.addEventListener('click', () => {
+                myDialog.close();
+            });
+        </script>
 
         <!-- REQUIRED SCRIPTS -->
         <!-- jQuery -->
